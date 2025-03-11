@@ -1,7 +1,7 @@
-package com.andresfeliper3.pkb.controllers;
+package com.andresfeliper3.pkb.infrastructure.adapters.controllers;
 
-import com.andresfeliper3.pkb.entities.Snippet;
-import com.andresfeliper3.pkb.services.SnippetService;
+import com.andresfeliper3.pkb.application.services.SnippetService;
+import com.andresfeliper3.pkb.domain.models.Snippet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,16 @@ import java.util.Optional;
 @RequestMapping("/api/v1/snippets")
 public class SnippetController {
 
+    private final SnippetService snippetService;
+
     @Autowired
-    private SnippetService snippetService;
+    public SnippetController(SnippetService snippetService) {
+        this.snippetService = snippetService;
+    }
 
     @PostMapping
     public ResponseEntity<Snippet> createSnippet(@RequestBody Snippet snippet) {
-        Snippet createdSnippet = snippetService.createSnippet(snippet);
+        Snippet createdSnippet = snippetService.createSnippet(snippet.getTitle(), snippet.getContent());
         return new ResponseEntity<>(createdSnippet, HttpStatus.CREATED);
     }
 
@@ -37,20 +41,16 @@ public class SnippetController {
 
     @PutMapping("/{snippetId}")
     public ResponseEntity<Snippet> updateSnippet(@PathVariable Long snippetId, @RequestBody Snippet snippetDetails) {
-        Optional<Snippet> optionalSnippet = snippetService.updateSnippet(snippetId, snippetDetails);
+        Optional<Snippet> optionalSnippet = snippetService.updateSnippet(snippetId, snippetDetails.getTitle(), snippetDetails.getContent());
         return optionalSnippet.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{snippetId}")
-    public ResponseEntity<Void> deleteSnippet (@PathVariable Long snippetId) {
+    public ResponseEntity<Void> deleteSnippet(@PathVariable Long snippetId) {
         if (snippetService.deleteSnippet(snippetId)) {
             return ResponseEntity.noContent().build();
-        }
-        else {
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
-
-
-
 }

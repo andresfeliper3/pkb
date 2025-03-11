@@ -1,7 +1,7 @@
-package com.andresfeliper3.pkb.controllers;
+package com.andresfeliper3.pkb.infrastructure.adapters.controllers;
 
-import com.andresfeliper3.pkb.entities.User;
-import com.andresfeliper3.pkb.services.UserService;
+import com.andresfeliper3.pkb.persistence.entities.User;
+import com.andresfeliper3.pkb.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

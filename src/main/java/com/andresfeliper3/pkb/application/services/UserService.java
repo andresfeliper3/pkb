@@ -1,6 +1,6 @@
-package com.andresfeliper3.pkb.services;
+package com.andresfeliper3.pkb.application.services;
 
-import com.andresfeliper3.pkb.entities.User;
+import com.andresfeliper3.pkb.persistence.entities.User;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package com.andresfeliper3.pkb.entities;
+package com.andresfeliper3.pkb.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -28,7 +28,7 @@ public class User {
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Snippet> snippets;
+    private Set<SnippetEntity> snippets;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<SearchLog> searchLogs;

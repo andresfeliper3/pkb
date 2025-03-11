@@ -1,4 +1,4 @@
-package com.andresfeliper3.pkb.entities;
+package com.andresfeliper3.pkb.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -18,6 +18,6 @@ public class Tag {
     private String name;
 
     @ManyToMany(mappedBy = "tags")
-    private Set<Snippet> snippets;
+    private Set<SnippetEntity> snippets;
 
 }

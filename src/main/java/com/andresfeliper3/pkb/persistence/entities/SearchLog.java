@@ -1,4 +1,4 @@
-package com.andresfeliper3.pkb.entities;
+package com.andresfeliper3.pkb.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
