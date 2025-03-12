@@ -2,7 +2,9 @@ package com.andresfeliper3.pkb.persistence.entities;
 
 import com.andresfeliper3.pkb.domain.models.Snippet;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -39,6 +41,9 @@ public class SnippetEntity {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private Set<Tag> tags;
+
+    public SnippetEntity() {
+    }
 
     public SnippetEntity(Snippet snippet) {
         this.snippetId = snippet.getId();

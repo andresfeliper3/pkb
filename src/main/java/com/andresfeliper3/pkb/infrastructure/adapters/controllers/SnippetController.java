@@ -1,7 +1,6 @@
 package com.andresfeliper3.pkb.infrastructure.adapters.controllers;
 
 import com.andresfeliper3.pkb.application.ports.input.SnippetUseCase;
-import com.andresfeliper3.pkb.application.services.SnippetService;
 import com.andresfeliper3.pkb.domain.models.Snippet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
