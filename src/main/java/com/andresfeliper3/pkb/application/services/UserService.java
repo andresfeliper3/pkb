@@ -1,20 +1,20 @@
 package com.andresfeliper3.pkb.application.services;
 
-import com.andresfeliper3.pkb.persistence.entities.User;
+import com.andresfeliper3.pkb.persistence.entities.UserEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-    public boolean registerUser(User user) {
+    public boolean registerUser(UserEntity user) {
         return true;
     }
 
-    public boolean authenticateUser(User user) {
+    public boolean authenticateUser(UserEntity user) {
         return true;
     }
 
-    public User findUserById(Long  userId) {
+    public UserEntity findUserById(Long  userId) {
         return null;
     }
 }

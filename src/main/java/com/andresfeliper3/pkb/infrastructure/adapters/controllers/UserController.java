@@ -1,6 +1,6 @@
 package com.andresfeliper3.pkb.infrastructure.adapters.controllers;
 
-import com.andresfeliper3.pkb.persistence.entities.User;
+import com.andresfeliper3.pkb.persistence.entities.UserEntity;
 import com.andresfeliper3.pkb.application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody User user) {
+    public ResponseEntity<String> registerUser(@RequestBody UserEntity user) {
         boolean isRegistered = userService.registerUser(user);
         if (isRegistered) {
             return ResponseEntity.ok("User registered successfully");
@@ -30,7 +30,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> loginUser(@RequestBody User user) {
+    public ResponseEntity<String> loginUser(@RequestBody UserEntity user) {
         boolean isAuthenticated = userService.authenticateUser(user);
         if (isAuthenticated) {
             return ResponseEntity.ok("User logged in successfully");
@@ -40,8 +40,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<User> getUserInfo(@PathVariable Long userId) {
-        User user = userService.findUserById(userId);
+    public ResponseEntity<UserEntity> getUserInfo(@PathVariable Long userId) {
+        UserEntity user = userService.findUserById(userId);
         if (user != null) {
             return ResponseEntity.ok(user);
         } else {

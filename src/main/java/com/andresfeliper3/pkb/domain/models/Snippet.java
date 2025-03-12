@@ -1,12 +1,10 @@
 package com.andresfeliper3.pkb.domain.models;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
-@Data
 public class Snippet {
     private Long id;
     private String title;

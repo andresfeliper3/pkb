@@ -13,12 +13,8 @@ import java.util.Optional;
 @Service
 public class SnippetService implements SnippetUseCase {
 
-    private final SnippetRepository snippetRepository;
-
     @Autowired
-    public SnippetService(SnippetRepository snippetRepository) {
-        this.snippetRepository = snippetRepository;
-    }
+    private SnippetRepository snippetRepository;
 
     @Override
     public Snippet createSnippet(String title, String content) {
