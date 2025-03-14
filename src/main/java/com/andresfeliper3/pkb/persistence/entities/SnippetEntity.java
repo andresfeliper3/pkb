@@ -1,9 +1,7 @@
 package com.andresfeliper3.pkb.persistence.entities;
 
 import com.andresfeliper3.pkb.domain.models.Snippet;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

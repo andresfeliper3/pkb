@@ -1,5 +1,7 @@
 package com.andresfeliper3.pkb.persistence.entities;
 
+import com.andresfeliper3.pkb.domain.models.Snippet;
+import com.andresfeliper3.pkb.domain.models.User;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -32,4 +34,23 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<SearchLog> searchLogs;
+
+    public UserEntity() {
+
+    }
+
+    public UserEntity(User user) {
+        this.userId = user.getId();
+        this.username = user.getUsername();
+        this.email = user.getEmail();
+        this.passwordHash = user.getPasswordHash();
+        this.createdAt = user.getCreatedAt();
+    }
+
+    public User toDomain() {
+        User user = new User(username, email, passwordHash);
+        user.setId(userId);
+        user.setCreatedAt(createdAt);
+        return user;
+    }
 }
