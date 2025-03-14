@@ -1,8 +1,8 @@
 package com.andresfeliper3.pkb.persistence.entities;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
